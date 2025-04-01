@@ -1,0 +1,84 @@
+@use 'variables' as *;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin responsive-grid($min-width, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+@mixin text-truncate($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+@mixin button-base {
+  border: none;
+  border-radius: $border-radius;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color $transition-duration;
+}
+
+@mixin primary-button {
+  @include button-base;
+  background-color: $primary-color;
+  color: white;
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+}
+
+@mixin success-button {
+  @include button-base;
+  background-color: $success-color;
+  color: white;
+
+  &:hover {
+    background-color: $success-dark;
+  }
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (max-width: $breakpoint-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == mobile {
+    @media (max-width: $breakpoint-mobile) {
+      @content;
+    }
+  }
+}
+
+@mixin card-base {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $card-padding;
+  background-color: white;
+}
+
+@mixin card-hover {
+  transition: transform $transition-duration, box-shadow $transition-duration;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $card-shadow;
+  }
+}
+

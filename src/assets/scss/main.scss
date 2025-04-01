@@ -1,0 +1,31 @@
+@use 'variables' as *;
+@forward 'variables';
+@forward 'mixins';
+@forward 'animations';
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: $text-color;
+  background-color: $background-light;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  transition: color $transition-duration;
+
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-dark;
+  margin-top: 0;
+}

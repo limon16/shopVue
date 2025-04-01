@@ -1,0 +1,29 @@
+@use 'variables' as *;
+
+$slide-distance: 30px !default;
+
+@mixin slide-animation($direction, $easing) {
+  animation: slide#{$direction} $animation-duration $easing forwards;
+}
+
+@mixin keyframes-slide($name, $start-y, $end-y, $start-opacity, $end-opacity) {
+  @keyframes #{$name} {
+    from {
+      transform: translateY($start-y);
+      max-height: if($start-opacity == 0, 0, 100px);
+      opacity: $start-opacity;
+      margin-bottom: if($start-opacity == 0, 0, 20px);
+      padding: if($start-opacity == 0, 0, 20px 0);
+    }
+    to {
+      transform: translateY($end-y);
+      max-height: if($end-opacity == 0, 0, 100px);
+      opacity: $end-opacity;
+      margin-bottom: if($end-opacity == 0, 0, 20px);
+      padding: if($end-opacity == 0, 0, 20px 0);
+    }
+  }
+}
+
+@include keyframes-slide('slideIn', $slide-distance, 0, 0, 1);
+@include keyframes-slide('slideOut', 0, -$slide-distance, 1, 0);
