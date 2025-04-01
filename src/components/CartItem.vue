@@ -1,6 +1,6 @@
 <template>
   <div class="cart-item">
-    <div class="item-image-container" @click="$emit('click')">
+    <div class="item-image-container" @click="$emit('navigate-to-product')">
       <img :alt="item.title" :src="item.image" class="item-image">
     </div>
 

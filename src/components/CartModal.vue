@@ -54,7 +54,7 @@
                   v-for="item in cartStore.cartItems"
                   :key="item.id"
                   :item="item"
-                  @click="navigateToProduct(item.id)"
+                  @navigate-to-product="navigateToProduct(item)"
                 />
               </div>
 
