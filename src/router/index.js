@@ -4,7 +4,7 @@ import HomePage from '../pages/HomePage.vue'
 import ProductPage from '../pages/ProductPage.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/shopVue/'),
   routes: [
     {
       path: '/',
